@@ -8,7 +8,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Build wrk
-ENV WRK_VERSION 4.0.2
+ENV WRK_VERSION 4.1.0
 RUN cd /tmp \
     && wget https://github.com/wg/wrk/archive/$WRK_VERSION.tar.gz -O wrk.tar.gz \
     && tar xvzf wrk.tar.gz \
@@ -16,6 +16,6 @@ RUN cd /tmp \
     && make
 
 FROM debian:stretch-slim
-ENV WRK_VERSION 4.0.2
+ENV WRK_VERSION 4.1.0
 COPY --from=build /tmp/wrk-$WRK_VERSION/wrk /usr/local/bin
 ENTRYPOINT ["wrk"]

@@ -1,4 +1,4 @@
-FROM buildpack-deps:stretch-scm as build
+FROM buildpack-deps:stretch-curl as build
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
